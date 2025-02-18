@@ -22,6 +22,13 @@ app.use(errorMiddleware);
 app.get("/", (req, res) => {
   res.send("welcome to the subscription tracker api");
 });
+app.get("/films", (req, res) => {
+  const count = req.query.count;
+  if (count) {
+    res.send(`here is your count ${count}`);
+  }
+  res.send("no count");
+});
 
 app.listen(PORT, async () => {
   console.log(`susbscripton tracker api is running on port ${PORT}`);
